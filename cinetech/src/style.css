@@ -1,0 +1,614 @@
+/* ==========================================================================
+   🎨 STYLE GLOBAL & VARIABLES (Thème Sombre Cinéma)
+   ========================================================================== */
+:root {
+  --bg-color: #111111;
+  --bg-card: #1a1a1a;
+  --bg-input: #252525;
+  --text-color: #f5f5f5;
+  --text-muted: #aaaaaa;
+  --primary: #ffcc00; /* Jaune Or Cinéma */
+  --primary-hover: #e6b800;
+  --danger: #ff3333;
+  --font-sans: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --max-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  padding-bottom: 4rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.btn {
+  background-color: var(--primary);
+  color: #000;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background-color: #333;
+  color: #fff;
+}
+.btn-secondary:hover {
+  background-color: #444;
+}
+
+.btn-small {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   🧭 HEADER, NAVIGATION & AUTOCOMPLÉTION
+   ========================================================================== */
+header.app-header {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #222;
+  backdrop-filter: blur(10px);
+}
+
+.header-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+/* Barre de recherche avec autocomplétion */
+.search-wrapper {
+  position: relative;
+  width: 300px;
+}
+
+.search-wrapper input {
+  width: 100%;
+  background-color: var(--bg-input);
+  border: 1px solid #333;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-wrapper input:focus {
+  border-color: var(--primary);
+}
+
+.autocomplete-results {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  background-color: #151515;
+  border: 1px solid #333;
+  border-radius: 8px;
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  z-index: 110;
+}
+
+.autocomplete-results.hidden {
+  display: none;
+}
+
+.autocomplete-item {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #222;
+  transition: background 0.2s;
+}
+
+.autocomplete-item:hover {
+  background-color: #222;
+}
+
+.autocomplete-item img {
+  width: 40px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.autocomplete-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.autocomplete-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.autocomplete-type {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.no-result {
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ==========================================================================
+   🏠 PAGE D'ACCUEIL & GRILLES DE MÉDIAS (TABLEAU DE FILMS)
+   ========================================================================== */
+.home-container,
+.catalog-container {
+  max-width: var(--max-width);
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.hero-banner {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.1), rgba(17, 17, 17, 1)),
+    url("https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1470")
+      center/cover;
+  padding: 5rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 3rem;
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.8);
+}
+
+.hero-banner h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+}
+
+.hero-banner p {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+}
+
+.media-section {
+  margin-bottom: 3rem;
+}
+
+.media-section h2,
+.catalog-header h1 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--primary);
+  padding-left: 0.75rem;
+}
+
+/* Force l'affichage en grille côte à côte (tableau) */
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+/* Cartes individuelles des films */
+.media-card {
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  overflow: hidden;
+  transition:
+    transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.3s ease;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.media-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+}
+
+.poster-container {
+  position: relative;
+  aspect-ratio: 2/3;
+  background-color: #222;
+}
+
+.poster-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-rating {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.media-info {
+  padding: 1rem;
+}
+
+.media-info h3 {
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.25rem;
+}
+
+.media-year {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   🔢 CONTRÔLES DE PAGINATION
+   ========================================================================== */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 3rem 0;
+}
+
+.pagination-btn,
+.pagination-number {
+  padding: 0.5rem 1rem;
+  background-color: var(--bg-card);
+  border: 1px solid #333;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.pagination-btn:hover:not(.disabled),
+.pagination-number:hover:not(.active) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.pagination-number.active {
+  background-color: var(--primary);
+  color: #000;
+  border-color: var(--primary);
+  cursor: default;
+}
+
+.pagination-btn.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   🎭 PAGE DÉTAILS DYNAMIQUE (DISPOSITION PARALLÈLE / CÔTE À CÔTE)
+   ========================================================================== */
+.details-page {
+  position: relative;
+}
+
+.details-hero {
+  position: relative;
+  background-image:
+    linear-gradient(
+      to right,
+      #111 30%,
+      rgba(17, 17, 17, 0.8) 60%,
+      rgba(17, 17, 17, 0.4) 100%
+    ),
+    var(--backdrop-url);
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 0;
+  min-height: 500px;
+}
+
+/* Aligne l'image à gauche et le texte à droite grâce au CSS Grid */
+.details-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 300px 1fr; /* Image bloquée à 300px, le texte prend tout le reste à droite */
+  gap: 3rem;
+}
+
+.details-poster img {
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  border: 1px solid #333;
+  width: 100%;
+}
+
+.details-main-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.details-main-info h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.details-main-info h1 .year {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.badge-rating {
+  background-color: rgba(255, 204, 0, 0.2);
+  color: var(--primary);
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 700;
+  border: 1px solid rgba(255, 204, 0, 0.4);
+}
+
+.media-type-tag {
+  background-color: #333;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.btn-fav {
+  margin-bottom: 2rem;
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+  align-self: flex-start;
+}
+
+.btn-fav.is-fav {
+  background-color: rgba(255, 51, 51, 0.15);
+  border-color: var(--danger);
+  color: #ff6666;
+}
+
+.synopsis-block,
+.crew-block,
+.cast-block {
+  margin-bottom: 1.5rem;
+}
+
+.synopsis-block p {
+  color: #ddd;
+  font-size: 1.05rem;
+  max-width: 800px;
+}
+
+.cast-block h3,
+.suggestions-section h2,
+.comments-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.cast-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.actor-badge {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid #333;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.actor-badge span {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-left: 0.25rem;
+}
+
+.suggestions-section,
+.comments-section {
+  max-width: var(--max-width);
+  margin: 3rem auto 0 auto;
+  padding: 0 1rem;
+}
+
+.container-inner {
+  border-top: 1px solid #222;
+  padding-top: 2rem;
+}
+
+/* ==========================================================================
+   💬 COMMENTAIRES 
+   ========================================================================== */
+.comment-form {
+  background-color: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #222;
+  margin-bottom: 2rem;
+}
+
+.comment-form h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background-color: var(--bg-input);
+  border: 1px solid #333;
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 6px;
+  outline: none;
+}
+
+.comment-node {
+  background-color: var(--bg-card);
+  padding: 1.25rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--primary);
+}
+
+.comment-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.comment-author {
+  font-weight: 700;
+  color: #fff;
+}
+
+.comment-replies-container {
+  margin-left: 2.5rem;
+  margin-top: 1rem;
+  border-left: 1px dashed #444;
+  padding-left: 1.25rem;
+}
+
+.btn-reply-trigger {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* Animations fluides */
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   📱 ADAPTATION MOBILE (RESPONSIVE)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .details-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .details-poster img {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  .details-hero {
+    background-image:
+      linear-gradient(to bottom, rgba(17, 17, 17, 0.7) 0%, #111 90%),
+      var(--backdrop-url);
+    padding: 2rem 0;
+  }
+  .details-main-info {
+    text-align: center;
+  }
+  .meta-row,
+  .cast-grid {
+    justify-content: center;
+  }
+}

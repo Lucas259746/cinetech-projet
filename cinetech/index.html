@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CineTech - Votre Bibliothèque Cinéma</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Header persistant (présent sur toutes les pages) -->
+    <header class="main-header">
+      <div class="header-container">
+        <a href="/" class="logo" data-link>CineTech</a>
+
+        <nav class="nav-links">
+          <a href="/" data-link>Accueil</a>
+          <a href="/movies" data-link>Films</a>
+          <a href="/series" data-link>Séries</a>
+          <a href="/favorites" data-link>Mes Favoris</a>
+        </nav>
+
+        <!-- Barre de recherche avec autocomplétion -->
+        <div class="search-container">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Rechercher un film, une série..."
+            autocomplete="off"
+          />
+          <div
+            id="autocomplete-results"
+            class="autocomplete-dropdown hidden"
+          ></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Conteneur dynamique où le routeur injecte le contenu de la page courante -->
+    <main id="app">
+      <div class="loader">Chargement de l'application...</div>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
