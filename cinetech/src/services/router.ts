@@ -14,7 +14,7 @@ class Router {
   private appContainer: HTMLElement | null = null;
 
   // 🛠️ CONFIGURATION : On indique au routeur qu'il s'exécute dans un sous-dossier
-  private basePath = "/cinetech/dist";
+  private basePath = "";
 
   constructor() {
     this.appContainer = document.getElementById("app");
