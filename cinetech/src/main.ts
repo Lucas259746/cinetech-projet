@@ -9,9 +9,7 @@ import { renderSeries } from "./views/series";
 import { renderDetails } from "./views/details";
 import { StorageService } from "./services/storage";
 import { initCommentsSection } from "./utils/comments";
-
-const renderFavorites = async () =>
-  "<h1>Mes Favoris</h1><p>Vos sauvegardes locales.</p>";
+import { renderFavorites } from "./views/favorites";
 
 // --- Déclaration des routes ---
 router.addRoute("/", renderHome);
